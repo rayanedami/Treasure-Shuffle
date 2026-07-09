@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="game">
+
+    <!-- ===========================
+         Background
+    ============================ -->
+
+    <img
+        src="assets/images/background.png"
+        id="gameBackground"
+        alt="Game Background">
+
+    <!-- ===========================
+         HUD
+    ============================ -->
+
+    <div id="hud">
+
+        <div id="gameInfo">
+
+            <div id="level">
+                🏴‍☠️ LEVEL <span id="levelValue">1</span>
+            </div>
+
+            <div id="score">
+                💰 SCORE <span id="scoreValue">0</span>
+            </div>
+
+        </div>
+
+        <button id="pauseButton">
+            ⏸
+        </button>
+
+    </div>
+
+    <!-- ===========================
+         Chests
+    ============================ -->
+
+    <div id="chests">
+
+        <div
+            class="chest-box"
+            id="box1">
+
+            <img
+                src="assets/images/chest-closed.png"
+                class="chest"
+                id="chest1"
+                alt="Chest">
+
+        </div>
+
+        <div
+            class="chest-box"
+            id="box2">
+
+            <img
+                src="assets/images/chest-closed.png"
+                class="chest"
+                id="chest2"
+                alt="Chest">
+
+        </div>
+
+        <div
+            class="chest-box"
+            id="box3">
+
+            <img
+                src="assets/images/chest-closed.png"
+                class="chest"
+                id="chest3"
+                alt="Chest">
+
+        </div>
+
+    </div>
+
+    <!-- ===========================
+         Parchment Overlay
+    ============================ -->
+
+    <div id="uiOverlay">
+        <!-- ===========================
+     Score Animation
+=========================== -->
+
+<div id="scorePopup">
+    +100
+</div>
+<!-- ===========================
+     Level Complete
+=========================== -->
+
+<div id="levelBanner">
+
+    LEVEL COMPLETE!
+
+</div>
+
+        <div id="uiPanel">
+
+            <img
+                src="assets/images/parchment.png"
+                alt="Parchment">
+
+            <div id="uiContent">
+
+                <h2 id="uiTitle"></h2>
+
+                <p id="uiMessage"></p>
+
+                <div id="uiButtons"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

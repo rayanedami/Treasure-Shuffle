@@ -1,0 +1,84 @@
+#game{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100vw;
+    height:100vh;
+
+    overflow:hidden;
+
+}
+
+#gameBackground{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+/* ===========================
+   CHESTS
+=========================== */
+
+#chests{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+}
+
+.chest-box{
+
+    position:absolute;
+
+    width:180px;
+
+    left:45%;
+
+    bottom:10px;
+
+    transition:transform .7s ease;
+
+}
+
+#box1{
+
+    transform:translateX(-300px);
+
+}
+
+#box2{
+
+    transform:translateX(0);
+
+}
+
+#box3{
+
+    transform:translateX(300px);
+
+}
+
+.chest{
+
+    width:180px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.chest:hover{
+
+    transform:translateY(-10px);
+
+}

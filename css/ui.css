@@ -1,0 +1,360 @@
+#uiOverlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+}
+
+#uiPanel{
+
+    position:relative;
+
+    width:450px;
+
+}
+
+#uiPanel img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+#uiContent{
+
+    position:absolute;
+
+    top:70px;
+    left:65px;
+    right:65px;
+    bottom:55px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-start;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+#uiTitle{
+
+    font-family:"Treasure";
+
+    font-size:42px;
+
+    color:#5b2f00;
+
+    line-height:1.1;
+
+    margin-bottom:25px;
+
+}
+
+#uiMessage{
+
+    color:#553000;
+
+    font-size:22px;
+
+    margin-bottom:25px;
+
+}
+
+.uiButton{
+
+    width:240px;
+
+    padding:16px 0;
+
+    margin:12px 0;
+
+    border:3px solid #7a4d13;
+
+    border-radius:14px;
+
+    background:linear-gradient(
+        to bottom,
+        #f9d97a 0%,
+        #e9bc56 45%,
+        #bf7b1d 100%
+    );
+
+    color:#4a2400;
+
+    font-family:"Treasure";
+
+    font-size:30px;
+
+    letter-spacing:2px;
+
+    text-shadow:
+        1px 1px 0 #fff4b5,
+        2px 2px 2px rgba(0,0,0,.35);
+
+    box-shadow:
+        inset 0 2px 0 rgba(255,255,255,.45),
+        inset 0 -3px 0 rgba(0,0,0,.2),
+        0 6px 12px rgba(0,0,0,.35);
+
+    cursor:pointer;
+
+    transition:all .25s ease;
+
+}
+
+.uiButton:hover{
+
+    transform:translateY(-3px) scale(1.04);
+
+    background:linear-gradient(
+        to bottom,
+        #ffe69d 0%,
+        #f4cb6c 45%,
+        #d28b26 100%
+    );
+
+    box-shadow:
+        inset 0 2px 0 rgba(255,255,255,.55),
+        inset 0 -3px 0 rgba(0,0,0,.15),
+        0 10px 18px rgba(0,0,0,.45);
+
+}
+
+.uiButton:active{
+
+    transform:translateY(2px);
+
+    box-shadow:
+        inset 0 3px 6px rgba(0,0,0,.25);
+
+}
+/* ===========================
+   HUD
+=========================== */
+
+#hud{
+
+    position:absolute;
+
+    top:25px;
+
+    left:30px;
+
+    right:30px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    z-index:50;
+
+}
+
+#gameInfo{
+
+    color:#fff;
+
+    font-family:"Treasure";
+
+    text-shadow:3px 3px 8px black;
+
+}
+
+#level{
+
+    font-size:34px;
+
+}
+
+#score{
+
+    margin-top:8px;
+
+    font-size:28px;
+
+}
+
+#pauseButton{
+
+    width:60px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.45);
+
+    color:white;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+#pauseButton:hover{
+
+    transform:scale(1.08);
+
+    background:rgba(0,0,0,.65);
+
+}
+/* ===========================
+   SCORE POPUP
+=========================== */
+
+#scorePopup{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:260px;
+
+    transform:translateX(-50%);
+
+    font-family:"Treasure";
+
+    font-size:70px;
+
+    color:#ffd700;
+
+    text-shadow:
+        3px 3px 8px black;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:100;
+
+}
+
+#scorePopup.show{
+
+    animation:scoreAnimation 1s ease forwards;
+
+}
+
+@keyframes scoreAnimation{
+
+    0%{
+
+        opacity:0;
+
+        transform:translate(-50%,20px) scale(.6);
+
+    }
+
+    30%{
+
+        opacity:1;
+
+        transform:translate(-50%,-10px) scale(1.2);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:translate(-50%,-80px) scale(1);
+
+    }
+
+}
+/* ===========================
+   LEVEL COMPLETE
+=========================== */
+
+#levelBanner{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%) scale(.7);
+
+    font-family:"Treasure";
+
+    font-size:72px;
+
+    color:#ffe16b;
+
+    text-shadow:
+        4px 4px 12px black;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:150;
+
+}
+
+#levelBanner.show{
+
+    animation:levelCompleteAnimation 1.6s ease forwards;
+
+}
+
+@keyframes levelCompleteAnimation{
+
+    0%{
+
+        opacity:0;
+
+        transform:translate(-50%,-50%) scale(.5);
+
+    }
+
+    20%{
+
+        opacity:1;
+
+        transform:translate(-50%,-50%) scale(1.15);
+
+    }
+
+    80%{
+
+        opacity:1;
+
+        transform:translate(-50%,-50%) scale(1);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:translate(-50%,-50%) scale(.8);
+
+    }
+
+}
