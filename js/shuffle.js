@@ -1,4 +1,4 @@
-function startShuffle() {
+async function startShuffle() {
 
     game.chestOrder = [1, 2, 3];
 
@@ -6,15 +6,11 @@ function startShuffle() {
 
     let shuffleCount = getShuffleCount();
 
-    shuffle();
+    while (shuffleCount > 0) {
 
-    function shuffle() {
+        while (game.paused) {
 
-        if (shuffleCount <= 0) {
-
-            enablePlayer();
-
-            return;
+            await new Promise(resolve => requestAnimationFrame(resolve));
 
         }
 
@@ -32,9 +28,11 @@ function startShuffle() {
 
         shuffleCount--;
 
-        setTimeout(shuffle, getShuffleSpeed());
+        await wait(getShuffleSpeed());
 
     }
+
+    enablePlayer();
 
 }
 

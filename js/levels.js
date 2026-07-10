@@ -12,9 +12,13 @@ function nextLevel() {
 
     if (game.level >= 20) {
 
+        playSound("victory");
+
+        stopMusic();
+
         showPanel(
 
-            "CONGRATULATIONS!",
+            "🏆 VICTORY!",
 
             "🏴‍☠️ You found the Deadhand Treasure!\n\n🏆 All 20 Levels Completed\n\n💰 Final Score: " + game.score,
 
@@ -24,11 +28,7 @@ function nextLevel() {
 
                     text: "Play Again",
 
-                    action: () => {
-
-                        location.reload();
-
-                    }
+                    action: restartGame
 
                 }
 
@@ -54,6 +54,8 @@ function nextLevel() {
 
 function gameOver() {
 
+    stopMusic();
+
     showPanel(
 
         "GAME OVER",
@@ -66,11 +68,7 @@ function gameOver() {
 
                 text: "Restart",
 
-                action: () => {
-
-                    location.reload();
-
-                }
+                action: restartGame
 
             }
 

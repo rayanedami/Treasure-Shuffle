@@ -2,6 +2,8 @@ function initGame() {
 
     updateHUD();
 
+    startMusic();
+
     document.getElementById("pauseButton").onclick = pauseGame;
 
     resetRound();
@@ -27,22 +29,37 @@ function resetRound() {
     revealTreasure();
 
 }
-
-function revealTreasure() {
+async function revealTreasure() {
 
     document.getElementById(`chest${game.treasureChest}`).src =
         "assets/images/treasure.png";
 
-    setTimeout(() => {
+    await wait(2000);
 
-        document.querySelectorAll(".chest").forEach(chest => {
+    document.querySelectorAll(".chest").forEach(chest => {
 
-            chest.src = "assets/images/chest-closed.png";
+        chest.src = "assets/images/chest-closed.png";
 
-        });
+    });
 
-        startShuffle();
+    startShuffle();
 
-    }, 2000);
+}
+function restartGame() {
+
+    hidePanel();
+
+    stopMusic();
+
+    game.level = 1;
+    game.score = 0;
+    game.paused = false;
+    game.canChoose = false;
+
+    updateHUD();
+
+    startMusic();
+
+    resetRound();
 
 }

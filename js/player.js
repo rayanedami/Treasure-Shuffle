@@ -12,51 +12,58 @@ function enablePlayer() {
 
 function chooseChest(event) {
 
-    if (!game.canChoose) return;
+    if (!game.canChoose || game.paused) return;
 
     game.canChoose = false;
 
+    playSound("chest");
+
     const clickedChest = Number(
+
         event.currentTarget.id.replace("chest", "")
+
     );
 
     if (clickedChest === game.treasureChest) {
 
+        playSound("treasure");
+
         event.currentTarget.src = "assets/images/treasure.png";
 
-       showScorePopup(100);
+        showScorePopup(100);
 
-showLevelBanner();
+        showLevelBanner();
 
-setTimeout(()=>{
+        setTimeout(() => {
 
-    nextLevel();
+            nextLevel();
 
-},1800);
+        }, 1800);
 
     }
 
     else {
 
-    // Open the wrong chest
-    event.currentTarget.src = "assets/images/chest-empty.png";
+        playSound("wrong");
 
-    // Wait before revealing the treasure
-    setTimeout(() => {
+        event.currentTarget.src = "assets/images/chest-empty.png";
 
-        document.getElementById(
-            `chest${game.treasureChest}`
-        ).src = "assets/images/treasure.png";
-
-        // Wait again before showing Game Over
         setTimeout(() => {
 
-            gameOver();
+            document.getElementById(
 
-        }, 1500);
+                `chest${game.treasureChest}`
 
-    }, 700);
+            ).src = "assets/images/treasure.png";
 
-}
+            setTimeout(() => {
+
+                gameOver();
+
+            }, 1500);
+
+        }, 700);
+
     }
 
+}

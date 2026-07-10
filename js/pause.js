@@ -1,6 +1,8 @@
-function pauseGame(){
+function pauseGame() {
 
-    gamePaused = true;
+    game.paused = true;
+    pauseMusic();
+    game.canChoose = false;
 
     showPanel(
 
@@ -12,13 +14,17 @@ function pauseGame(){
 
             {
 
-                text:"Resume",
+                text: "Resume",
 
-                action:()=>{
+                action: () => {
 
-                    gamePaused=false;
+                    game.paused = false;
+                    resumeMusic();
+                    
 
                     hidePanel();
+
+                    enablePlayer();
 
                 }
 
@@ -26,13 +32,9 @@ function pauseGame(){
 
             {
 
-                text:"Restart",
+                text: "Restart",
 
-                action:()=>{
-
-                    location.reload();
-
-                }
+                action: restartGame
 
             }
 
@@ -42,11 +44,11 @@ function pauseGame(){
 
 }
 
-document.addEventListener("keydown",event=>{
+document.addEventListener("keydown", event => {
 
-    if(event.key==="Escape"){
+    if (event.key === "Escape") {
 
-        if(!gamePaused){
+        if (!game.paused) {
 
             pauseGame();
 
