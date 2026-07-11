@@ -32,6 +32,7 @@ function showPanel(title, message, buttons) {
 }
 
 function hidePanel() {
+    document.getElementById("uiButtons").className = "";
 
     document.getElementById("uiOverlay").style.display = "none";
 

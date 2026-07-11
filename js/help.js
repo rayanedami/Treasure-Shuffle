@@ -1,48 +1,158 @@
-const buttons = [];
+const helpPages = [
 
-if (currentHelpPage > 0) {
+    {
+        title: "THE LEGEND",
 
-    buttons.push({
+        message:
+            "🏴‍☠️ Captain Deadhand hid his legendary treasure before disappearing forever.\n\n" +
+            "Many pirates searched for it...\n\n" +
+            "None returned.\n\n" +
+            "Only the cleverest pirate can follow the treasure through every shuffle."
+    },
 
-        text: "◀ Previous",
+    {
+        title: "HOW TO PLAY",
 
-        action: () => {
+        message:
+            "* Watch the treasure carefully.\n\n" +
+            "* The treasure hides inside one chest.\n\n" +
+            "* Follow the chests while they shuffle.\n\n" +
+            "* Click the chest containing the treasure.\n\n" +
+            "💰 Each correct answer gives you 100 points."
+    },
 
-            playSound("click");
+    {
+        title: "DIFFICULTY",
 
-            openHelpPage(currentHelpPage - 1);
+        message:
+            "⚡ Every level becomes faster.\n\n" +
+            "🔀 The number of swaps increases.\n\n" +
+            "📦 There are always three chests.\n\n" +
+            "🏆 Complete all 20 levels to find the legendary treasure."
+    },
+
+    {
+        title: "CONTROLS",
+
+        message:
+            "🖱 Click a chest to choose it.\n\n" +
+            "⏸ Use the Pause button during the game.\n\n" +
+            "⌨ Press ESC to pause or resume.\n\n" +
+            "⚙ Music and sound settings are available inside the Pause menu."
+    }
+
+];
+
+let currentHelpPage = 0;
+
+function openHelpPage(pageIndex) {
+
+    if (pageIndex < 0 || pageIndex >= helpPages.length) {
+        return;
+    }
+
+    currentHelpPage = pageIndex;
+
+    const page = helpPages[currentHelpPage];
+    const buttons = [];
+
+    if (currentHelpPage > 0) {
+
+        buttons.push({
+
+            text: "◀ Previous",
+
+            action: () => {
+
+                playSound("click");
+
+                openHelpPage(currentHelpPage - 1);
+
+            }
+
+        });
+
+    }
+
+    if (currentHelpPage < helpPages.length - 1) {
+
+        buttons.push({
+
+            text: "Next ▶",
+
+            action: () => {
+
+                playSound("click");
+
+                openHelpPage(currentHelpPage + 1);
+
+            }
+
+        });
+
+    } else {
+
+        buttons.push({
+
+            text: "Close",
+
+            action: closeHelp
+
+        });
+
+    }
+
+    showPanel(
+        page.title,
+        page.message,
+        buttons
+    );
+
+    const buttonContainer = document.getElementById("uiButtons");
+
+    if (buttonContainer) {
+
+        if (buttons.length === 1) {
+
+            buttonContainer.className = "helpButtons singleButton";
+
+        } else {
+
+            buttonContainer.className = "helpButtons";
 
         }
 
-    });
+    }
+
+    const pageNumber = document.getElementById("pageNumber");
+
+    if (pageNumber) {
+
+        pageNumber.textContent =
+            `Page ${currentHelpPage + 1} / ${helpPages.length}`;
+
+    }
 
 }
 
-if (currentHelpPage < helpPages.length - 1) {
+function closeHelp() {
 
-    buttons.push({
+    playSound("click");
 
-        text: "Next ▶",
+    const buttonContainer = document.getElementById("uiButtons");
 
-        action: () => {
+    if (buttonContainer) {
+        buttonContainer.className = "";
+    }
 
-            playSound("click");
+    const pageNumber = document.getElementById("pageNumber");
 
-            openHelpPage(currentHelpPage + 1);
+    if (pageNumber) {
+        pageNumber.textContent = "";
+    }
 
-        }
+    hidePanel();
 
-    });
-
-}
-else{
-
-    buttons.push({
-
-        text:"Close",
-
-        action:closeHelp
-
-    });
+    currentHelpPage = 0;
 
 }

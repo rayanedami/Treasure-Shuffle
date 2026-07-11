@@ -95,3 +95,60 @@
     transform:translateX(-50%) scale(.95);
 
 }
+/* ===========================
+   RESPONSIVE MENU
+=========================== */
+
+@media (max-width: 750px){
+
+    #title{
+        top:25px;
+    }
+
+    #title h1{
+        font-size:56px;
+        letter-spacing:2px;
+        text-align:center;
+        padding:0 20px;
+    }
+
+    #startButton{
+        width:240px;
+        bottom:20px;
+    }
+
+    #helpButton{
+        width:54px;
+        height:54px;
+        right:18px;
+        bottom:18px;
+        font-size:34px;
+    }
+
+}
+
+@media (max-width: 500px){
+
+    #title{
+        top:20px;
+    }
+
+    #title h1{
+        font-size:40px;
+        letter-spacing:1px;
+    }
+
+    #startButton{
+        width:190px;
+        bottom:18px;
+    }
+
+    #helpButton{
+        width:48px;
+        height:48px;
+        right:14px;
+        bottom:14px;
+        font-size:30px;
+    }
+
+}

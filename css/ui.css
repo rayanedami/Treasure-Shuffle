@@ -375,11 +375,26 @@
 
     display:flex;
 
-    justify-content:space-between;
+    flex-direction:column;
 
     align-items:center;
 
-    gap:15px;
+    gap:12px;
+
+    margin-top:15px;
+
+}
+/* Boutons normaux : Pause, Game Over, Settings */
+
+#uiButtons{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:12px;
 
     width:100%;
 
@@ -387,8 +402,172 @@
 
 }
 
-#uiButtons .uiButton{
+/* Boutons du menu Help */
 
-    flex:1;
+#uiButtons.helpButtons{
+
+    flex-direction:row;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+/* Taille des boutons Previous et Next */
+
+#uiButtons.helpButtons .uiButton{
+
+    width:170px;
+
+    padding:10px 12px;
+
+    margin:0;
+
+    font-size:20px;
+
+    flex:none;
+
+}
+
+/* Quand il existe un seul bouton, comme Next sur la première page */
+
+#uiButtons.helpButtons.singleButton{
+
+    justify-content:center;
+
+}
+/* ===========================
+   RESPONSIVE UI
+=========================== */
+
+@media (max-width: 750px){
+
+    #hud{
+        top:15px;
+        left:15px;
+        right:15px;
+    }
+
+    #level{
+        font-size:26px;
+    }
+
+    #score,
+    #bestScore{
+        font-size:21px;
+    }
+
+    #pauseButton{
+        width:50px;
+        height:50px;
+        font-size:22px;
+    }
+
+    #uiPanel{
+        width:90vw;
+        max-width:520px;
+    }
+
+    #uiContent{
+        top:70px;
+        left:45px;
+        right:45px;
+        bottom:50px;
+    }
+
+    #uiTitle{
+        font-size:32px;
+    }
+
+    #uiMessage{
+        font-size:17px;
+        line-height:1.4;
+    }
+
+    .uiButton{
+        width:190px;
+        padding:11px 0;
+        font-size:22px;
+    }
+
+    #levelBanner{
+        width:90%;
+        font-size:48px;
+        text-align:center;
+    }
+
+    #scorePopup{
+        bottom:190px;
+        font-size:50px;
+    }
+
+}
+
+@media (max-width: 500px){
+
+    #level{
+        font-size:21px;
+    }
+
+    #score,
+    #bestScore{
+        font-size:17px;
+    }
+
+    #pauseButton{
+        width:44px;
+        height:44px;
+        font-size:19px;
+    }
+
+    #uiPanel{
+        width:96vw;
+    }
+
+    #uiContent{
+        top:55px;
+        left:32px;
+        right:32px;
+        bottom:38px;
+    }
+
+    #uiTitle{
+        font-size:26px;
+        margin-bottom:14px;
+    }
+
+    #uiMessage{
+        font-size:14px;
+        line-height:1.3;
+        margin-bottom:12px;
+    }
+
+    .uiButton{
+        width:150px;
+        padding:9px 0;
+        font-size:18px;
+    }
+
+    #uiButtons.helpButtons .uiButton{
+        width:125px;
+        font-size:15px;
+    }
+
+    #pageNumber{
+        font-size:16px;
+        margin:8px 0;
+    }
+
+    #levelBanner{
+        font-size:34px;
+    }
+
+    #scorePopup{
+        bottom:150px;
+        font-size:40px;
+    }
 
 }

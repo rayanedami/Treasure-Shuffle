@@ -43,7 +43,7 @@ function showPausePanel() {
 
         [
             {
-                text: "Resume",
+                text: "Resume ",
                 action: resumeGame
             },
 
