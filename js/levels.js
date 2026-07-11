@@ -1,14 +1,23 @@
-function updateHUD() {
+function updateHUD(){
 
     document.getElementById("levelValue").textContent = game.level;
 
     document.getElementById("scoreValue").textContent = game.score;
+
+    document.getElementById("bestScoreValue").textContent = game.bestScore;
 
 }
 
 function nextLevel() {
 
     game.score += 100;
+    if(game.score > game.bestScore){
+
+    game.bestScore = game.score;
+
+    localStorage.setItem("bestScore", game.bestScore);
+
+}
 
     if (game.level >= 20) {
 
@@ -54,6 +63,13 @@ function nextLevel() {
 
 function gameOver() {
 
+    if(game.score > game.bestScore){
+
+    game.bestScore = game.score;
+
+    localStorage.setItem("bestScore", game.bestScore);
+
+}
     stopMusic();
 
     showPanel(

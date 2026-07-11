@@ -26,6 +26,15 @@ function chooseChest(event) {
 
     if (clickedChest === game.treasureChest) {
 
+        const rect = event.currentTarget.getBoundingClientRect();
+
+createSparkles(
+
+    rect.left + rect.width / 2,
+
+    rect.top + rect.height / 2
+
+);
         playSound("treasure");
 
         event.currentTarget.src = "assets/images/treasure.png";
@@ -45,6 +54,7 @@ function chooseChest(event) {
     else {
 
         playSound("wrong");
+        shakeScreen();
 
         event.currentTarget.src = "assets/images/chest-empty.png";
 

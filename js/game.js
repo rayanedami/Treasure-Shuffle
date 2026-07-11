@@ -4,7 +4,11 @@ function initGame() {
 
     startMusic();
 
-    document.getElementById("pauseButton").onclick = pauseGame;
+    const pauseButton = document.getElementById("pauseButton");
+
+    if (pauseButton) {
+        pauseButton.onclick = pauseGame;
+    }
 
     resetRound();
 
@@ -13,15 +17,12 @@ function initGame() {
 function resetRound() {
 
     game.canChoose = false;
-
     game.chestOrder = [1, 2, 3];
 
     updatePositions();
 
     document.querySelectorAll(".chest").forEach(chest => {
-
         chest.src = "assets/images/chest-closed.png";
-
     });
 
     game.treasureChest = Math.floor(Math.random() * 3) + 1;
@@ -29,22 +30,27 @@ function resetRound() {
     revealTreasure();
 
 }
+
 async function revealTreasure() {
 
-    document.getElementById(`chest${game.treasureChest}`).src =
-        "assets/images/treasure.png";
+    const treasureChest = document.getElementById(
+        `chest${game.treasureChest}`
+    );
+
+    if (!treasureChest) return;
+
+    treasureChest.src = "assets/images/treasure.png";
 
     await wait(2000);
 
     document.querySelectorAll(".chest").forEach(chest => {
-
         chest.src = "assets/images/chest-closed.png";
-
     });
 
     startShuffle();
 
 }
+
 function restartGame() {
 
     hidePanel();
@@ -55,6 +61,7 @@ function restartGame() {
     game.score = 0;
     game.paused = false;
     game.canChoose = false;
+    game.chestOrder = [1, 2, 3];
 
     updateHUD();
 

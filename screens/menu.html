@@ -1,21 +1,69 @@
-<div id="menu">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="menu">
 
+    <!-- Background -->
     <img
         src="assets/images/start-bg.png"
         id="menuBackground"
-        alt="Background">
+        alt="Deadhand Treasure Background"
+    >
 
+    <!-- Dark overlay -->
     <div id="overlay"></div>
 
+    <!-- Game title -->
     <div id="title">
-
-        <h1>Treasure Map Deadhand</h1>
-
+        <h1>DEADHAND TREASURE</h1>
     </div>
 
+    <!-- Start button -->
     <img
         src="assets/images/start.png"
         id="startButton"
-        alt="Start Game">
+        alt="Start Game"
+    >
+
+    <!-- Help button -->
+    <button
+        id="helpButton"
+        type="button"
+        aria-label="How to play"
+    >
+        ?
+    </button>
+
+    <!-- Help parchment -->
+    <div id="uiOverlay">
+
+        <div id="uiPanel">
+
+            <img
+                src="assets/images/parchment.png"
+                alt="Pirate Parchment"
+            >
+
+            <div id="uiContent">
+
+                <h2 id="uiTitle"></h2>
+
+                <p id="uiMessage"></p>
+
+                <div id="uiButtons"></div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
+    
+</body>
+</html>

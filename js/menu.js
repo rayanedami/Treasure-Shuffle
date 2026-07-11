@@ -1,12 +1,32 @@
-function initMenu(){
+function initMenu() {
 
     const startButton = document.getElementById("startButton");
+    const helpButton = document.getElementById("helpButton");
 
-    startButton.addEventListener("click", () => {
-        playSound("click");
+    if (startButton) {
 
-        loadScreen("game");
+        startButton.onclick = () => {
 
-    });
+            playSound("click");
+
+            startMusic();
+
+            loadScreen("game");
+
+        };
+
+    }
+
+    if (helpButton) {
+
+        helpButton.onclick = () => {
+
+            playSound("click");
+
+            openHelpPage(0);
+
+        };
+
+    }
 
 }

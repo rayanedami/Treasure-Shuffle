@@ -20,7 +20,7 @@
 
     position:relative;
 
-    width:450px;
+    width:600px;
 
 }
 
@@ -36,16 +36,14 @@
 
     position:absolute;
 
-    top:70px;
-    left:65px;
-    right:65px;
-    bottom:55px;
+    top:160px;
+    left:80px;
+    right:80px;
+    bottom:70px;
 
     display:flex;
 
     flex-direction:column;
-
-    justify-content:flex-start;
 
     align-items:center;
 
@@ -57,13 +55,13 @@
 
     font-family:"Treasure";
 
-    font-size:42px;
+    font-size:36px;
 
     color:#5b2f00;
 
     line-height:1.1;
 
-    margin-bottom:25px;
+    margin-bottom:18px;
 
 }
 
@@ -74,6 +72,8 @@
     font-size:22px;
 
     margin-bottom:25px;
+
+    white-space:pre-line;
 
 }
 
@@ -145,6 +145,7 @@
         inset 0 3px 6px rgba(0,0,0,.25);
 
 }
+
 /* ===========================
    HUD
 =========================== */
@@ -171,7 +172,7 @@
 
 #gameInfo{
 
-    color:#fff;
+    color:#FFD700;
 
     font-family:"Treasure";
 
@@ -185,7 +186,8 @@
 
 }
 
-#score{
+#score,
+#bestScore{
 
     margin-top:8px;
 
@@ -196,11 +198,9 @@
 #pauseButton{
 
     width:60px;
-
     height:60px;
 
     border:none;
-
     border-radius:50%;
 
     background:rgba(0,0,0,.45);
@@ -222,6 +222,7 @@
     background:rgba(0,0,0,.65);
 
 }
+
 /* ===========================
    SCORE POPUP
 =========================== */
@@ -242,8 +243,7 @@
 
     color:#ffd700;
 
-    text-shadow:
-        3px 3px 8px black;
+    text-shadow:3px 3px 8px black;
 
     opacity:0;
 
@@ -286,6 +286,7 @@
     }
 
 }
+
 /* ===========================
    LEVEL COMPLETE
 =========================== */
@@ -306,8 +307,7 @@
 
     color:#ffe16b;
 
-    text-shadow:
-        4px 4px 12px black;
+    text-shadow:4px 4px 12px black;
 
     opacity:0;
 
@@ -356,5 +356,39 @@
         transform:translate(-50%,-50%) scale(.8);
 
     }
+
+}
+#pageNumber{
+
+    margin:15px 0;
+
+    font-family:"Treasure";
+
+    font-size:22px;
+
+    color:#6b3a00;
+
+    text-shadow:1px 1px 0 rgba(255,255,255,.5);
+
+}
+#uiButtons{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    width:100%;
+
+    margin-top:15px;
+
+}
+
+#uiButtons .uiButton{
+
+    flex:1;
 
 }

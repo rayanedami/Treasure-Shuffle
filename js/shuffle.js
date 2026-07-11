@@ -28,7 +28,7 @@ async function startShuffle() {
 
         shuffleCount--;
 
-        await wait(getShuffleSpeed());
+        await wait(getShuffleSpeed() + 120);
 
     }
 
