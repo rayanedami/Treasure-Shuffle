@@ -1,29 +1,45 @@
-let gamePaused = false;
-
-function showPanel(title, message, buttons) {
+function showPanel(
+    title,
+    message,
+    buttons,
+    panelType = "normalPanel"
+) {
 
     const overlay = document.getElementById("uiOverlay");
+    const panel = document.getElementById("uiPanel");
+    const titleElement = document.getElementById("uiTitle");
+    const messageElement = document.getElementById("uiMessage");
+    const buttonsContainer = document.getElementById("uiButtons");
 
-    document.getElementById("uiTitle").textContent = title;
+    if (
+        !overlay ||
+        !panel ||
+        !titleElement ||
+        !messageElement ||
+        !buttonsContainer
+    ) {
+        return;
+    }
 
-    document.getElementById("uiMessage").innerHTML =
-        message.replace(/\n/g, "<br>");
+    panel.className = panelType;
 
-    const container = document.getElementById("uiButtons");
+    titleElement.textContent = title;
 
-    container.innerHTML = "";
+    messageElement.textContent = message;
+
+    buttonsContainer.innerHTML = "";
+    buttonsContainer.className = "";
 
     buttons.forEach(button => {
 
         const element = document.createElement("button");
 
+        element.type = "button";
         element.className = "uiButton";
-
         element.textContent = button.text;
-
         element.onclick = button.action;
 
-        container.appendChild(element);
+        buttonsContainer.appendChild(element);
 
     });
 
@@ -32,8 +48,21 @@ function showPanel(title, message, buttons) {
 }
 
 function hidePanel() {
-    document.getElementById("uiButtons").className = "";
 
-    document.getElementById("uiOverlay").style.display = "none";
+    const overlay = document.getElementById("uiOverlay");
+    const panel = document.getElementById("uiPanel");
+    const buttonsContainer = document.getElementById("uiButtons");
+
+    if (overlay) {
+        overlay.style.display = "none";
+    }
+
+    if (panel) {
+        panel.className = "normalPanel";
+    }
+
+    if (buttonsContainer) {
+        buttonsContainer.className = "";
+    }
 
 }

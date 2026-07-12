@@ -43,7 +43,7 @@ function showPausePanel() {
 
         [
             {
-                text: "Resume ",
+                text: "Resume",
                 action: resumeGame
             },
 
@@ -56,7 +56,9 @@ function showPausePanel() {
                 text: "Restart",
                 action: restartGame
             }
-        ]
+        ],
+
+        "pausePanel"
 
     );
 
@@ -74,58 +76,60 @@ function openPauseSettings() {
 
     showPanel(
 
-        "SETTINGS",
+    "SETTINGS",
 
-        "",
+    "",
 
-        [
-            {
-                text: musicText,
+    [
+        {
+            text: musicText,
 
-                action: () => {
+            action: () => {
 
-                    setMusicEnabled(!game.musicEnabled);
+                setMusicEnabled(!game.musicEnabled);
 
-                    openPauseSettings();
+                openPauseSettings();
 
-                }
-            },
-
-            {
-                text: soundText,
-
-                action: () => {
-
-                    setSoundEnabled(!game.soundEnabled);
-
-                    openPauseSettings();
-
-                }
-            },
-
-            {
-                text: "Reset Best Score",
-
-                action: () => {
-
-                    game.bestScore = 0;
-
-                    localStorage.setItem("bestScore", "0");
-
-                    updateHUD();
-
-                    openPauseSettings();
-
-                }
-            },
-
-            {
-                text: "Back",
-                action: showPausePanel
             }
-        ]
+        },
 
-    );
+        {
+            text: soundText,
+
+            action: () => {
+
+                setSoundEnabled(!game.soundEnabled);
+
+                openPauseSettings();
+
+            }
+        },
+
+        {
+            text: "Reset Best Score",
+
+            action: () => {
+
+                game.bestScore = 0;
+
+                localStorage.setItem("bestScore", "0");
+
+                updateHUD();
+
+                openPauseSettings();
+
+            }
+        },
+
+        {
+            text: "Back",
+            action: showPausePanel
+        }
+    ],
+
+    "pausePanel"
+
+);
 
 }
 

@@ -506,68 +506,35 @@
 
 }
 
-@media (max-width: 500px){
-
-    #level{
-        font-size:21px;
-    }
-
-    #score,
-    #bestScore{
-        font-size:17px;
-    }
-
-    #pauseButton{
-        width:44px;
-        height:44px;
-        font-size:19px;
-    }
+@media (max-width: 750px){
 
     #uiPanel{
-        width:96vw;
+        width:92vw;
+        max-width:560px;
     }
 
     #uiContent{
-        top:55px;
-        left:32px;
-        right:32px;
-        bottom:38px;
+        top:95px;
+        left:55px;
+        right:55px;
+        bottom:45px;
     }
 
     #uiTitle{
-        font-size:26px;
-        margin-bottom:14px;
+        font-size:30px;
+        margin-bottom:18px;
     }
 
     #uiMessage{
-        font-size:14px;
-        line-height:1.3;
-        margin-bottom:12px;
+        font-size:16px;
+        line-height:1.35;
+        margin-bottom:14px;
     }
 
     .uiButton{
-        width:150px;
-        padding:9px 0;
-        font-size:18px;
-    }
-
-    #uiButtons.helpButtons .uiButton{
-        width:125px;
-        font-size:15px;
-    }
-
-    #pageNumber{
-        font-size:16px;
-        margin:8px 0;
-    }
-
-    #levelBanner{
-        font-size:34px;
-    }
-
-    #scorePopup{
-        bottom:150px;
-        font-size:40px;
+        width:180px;
+        padding:10px 0;
+        font-size:20px;
     }
 
 }

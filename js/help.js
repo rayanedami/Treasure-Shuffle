@@ -103,10 +103,11 @@ function openHelpPage(pageIndex) {
     }
 
     showPanel(
-        page.title,
-        page.message,
-        buttons
-    );
+    page.title,
+    page.message,
+    buttons,
+    "helpPanel"
+);
 
     const buttonContainer = document.getElementById("uiButtons");
 
