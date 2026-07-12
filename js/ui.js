@@ -24,7 +24,6 @@ function showPanel(
     panel.className = panelType;
 
     titleElement.textContent = title;
-
     messageElement.textContent = message;
 
     buttonsContainer.innerHTML = "";

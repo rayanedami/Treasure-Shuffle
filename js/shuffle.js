@@ -25,11 +25,14 @@ async function startShuffle() {
         shuffleCount--;
 
         await wait(getShuffleSpeed());
+
     }
 
-    if (!game.paused) {
-        enablePlayer();
+    while (game.paused) {
+        await new Promise(resolve => requestAnimationFrame(resolve));
     }
+
+    enablePlayer();
 
 }
 
@@ -48,25 +51,11 @@ function getChestDistance() {
 
     const screenWidth = window.innerWidth;
 
-    if (screenWidth <= 380) {
-        return 88;
-    }
-
-    if (screenWidth <= 500) {
-        return 105;
-    }
-
-    if (screenWidth <= 700) {
-        return 135;
-    }
-
-    if (screenWidth <= 900) {
-        return 165;
-    }
-
-    if (screenWidth <= 1100) {
-        return 195;
-    }
+    if (screenWidth <= 380) return 78;
+    if (screenWidth <= 500) return 92;
+    if (screenWidth <= 700) return 125;
+    if (screenWidth <= 900) return 155;
+    if (screenWidth <= 1100) return 190;
 
     return 300;
 
